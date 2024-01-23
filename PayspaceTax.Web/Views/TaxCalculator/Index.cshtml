@@ -1,8 +1,36 @@
-﻿@{
+﻿<!-- YourRazorViewName.cshtml -->
+@model PayspaceTax.Web.Shared.Models.TaxCalculationResultModel?
+
+@{
     ViewData["Title"] = "Tax Calculator";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Tax Calculator</h1>
+
+    <div class="row justify-content-start align-items-center">
+        <form method="post" action="@Url.Action("CalculateTax", "TaxCalculator")">
+            <div class="form-group text-start mb-5">
+                <label class="form-label" for="postalCode">Postal Code</label>
+                <input type="text" id="postalCode" name="postalCode" class="form-control" required />
+            </div>
+        
+            <div class="form-group text-start mb-5">
+                <label class="form-label" for="annualIncome">Annual Income</label>
+                <input type="number" id="annualIncome" name="annualIncome" class="form-control" min="0" required />
+            </div>
+        
+            <button type="submit" class="btn btn-primary mb-5">Calculate Tax</button>
+        </form>
+    </div>
+    
+    @if (Model != null)
+    {
+        <!-- Display the results -->
+        <div class="row">
+            <p>Postal Code: @Model.PostalCode</p>
+            <p>Annual Income: @Model.AnnualIncome</p>
+            <p>Tax Amount: @Model.TaxAmount</p>
+        </div>
+    }
 </div>

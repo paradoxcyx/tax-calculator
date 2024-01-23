@@ -223,3 +223,4 @@ D:\Projects\Personal\tax-calculator\PayspaceTax.API\obj\Debug\net8.0\refint\Pays
 D:\Projects\Personal\tax-calculator\PayspaceTax.API\obj\Debug\net8.0\PayspaceTax.API.pdb
 D:\Projects\Personal\tax-calculator\PayspaceTax.API\obj\Debug\net8.0\PayspaceTax.API.genruntimeconfig.cache
 D:\Projects\Personal\tax-calculator\PayspaceTax.API\obj\Debug\net8.0\ref\PayspaceTax.API.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.API\obj\Debug\net8.0\PayspaceTax.API.sourcelink.json
