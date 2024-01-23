@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "B78XQFbsr43EsJk5d51TvtyDQr0FC4z4i4zSPpjedWE=",
+  "Source": "PayspaceTax.API",
+  "BasePath": "_content/PayspaceTax.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
