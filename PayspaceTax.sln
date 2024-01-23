@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayspaceTax.Web", "Payspace
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayspaceTax.Web.Shared", "PayspaceTax.Web.Shared\PayspaceTax.Web.Shared.csproj", "{24D66BBE-C46B-4D1A-A2A2-2C1DD5FE49E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayspaceTax.Infrastructure", "PayspaceTax.Infrastructure\PayspaceTax.Infrastructure.csproj", "{11D439E9-4719-49B9-B4B1-E5039BFCEBD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayspaceTax.Domain", "PayspaceTax.Domain\PayspaceTax.Domain.csproj", "{B8FAE9FB-A9B6-4034-AA3B-C3A0489B271F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayspaceTax.Application", "PayspaceTax.Application\PayspaceTax.Application.csproj", "{65A48EF8-3F5F-42D1-AF40-82697D1B544C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{24D66BBE-C46B-4D1A-A2A2-2C1DD5FE49E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D66BBE-C46B-4D1A-A2A2-2C1DD5FE49E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D66BBE-C46B-4D1A-A2A2-2C1DD5FE49E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D439E9-4719-49B9-B4B1-E5039BFCEBD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D439E9-4719-49B9-B4B1-E5039BFCEBD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D439E9-4719-49B9-B4B1-E5039BFCEBD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D439E9-4719-49B9-B4B1-E5039BFCEBD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8FAE9FB-A9B6-4034-AA3B-C3A0489B271F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8FAE9FB-A9B6-4034-AA3B-C3A0489B271F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8FAE9FB-A9B6-4034-AA3B-C3A0489B271F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8FAE9FB-A9B6-4034-AA3B-C3A0489B271F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A48EF8-3F5F-42D1-AF40-82697D1B544C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A48EF8-3F5F-42D1-AF40-82697D1B544C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A48EF8-3F5F-42D1-AF40-82697D1B544C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A48EF8-3F5F-42D1-AF40-82697D1B544C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

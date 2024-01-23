@@ -12,17 +12,16 @@ public class TaxCalculatorController : Controller
     }
 
     [HttpPost]
-    public IActionResult CalculateTax(string postalCode, decimal annualIncome)
+    public IActionResult Index(string postalCode, decimal annualIncome)
     {
         // Create a model to hold the result
-        TaxCalculationResultModel resultModel = new TaxCalculationResultModel
+        var resultModel = new TaxCalculationResultModel
         {
             PostalCode = postalCode,
             AnnualIncome = annualIncome,
             TaxAmount = 0
         };
 
-        // Pass the model to the view
-        return View("Index", resultModel);
+        return View(resultModel);
     }
 }
