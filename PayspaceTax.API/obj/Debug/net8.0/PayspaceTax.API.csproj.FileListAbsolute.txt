@@ -253,3 +253,9 @@ D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\runtimes\wi
 D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\PayspaceTax.Infrastructure.dll
 D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\PayspaceTax.Infrastructure.pdb
 D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\PayspaceTax.Domain.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\PayspaceTax.Domain.pdb
+D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\PayspaceTax.API.Shared.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\PayspaceTax.Application.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\PayspaceTax.API.Shared.pdb
+D:\Projects\Personal\tax-calculator\PayspaceTax.API\bin\Debug\net8.0\PayspaceTax.Application.pdb

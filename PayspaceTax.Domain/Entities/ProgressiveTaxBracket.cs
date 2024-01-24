@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PayspaceTax.Infrastructure.Entities;
+namespace PayspaceTax.Domain.Entities;
 
 public class ProgressiveTaxBracket
 {
+    [Key]
+    public int Id { get; set; }
+    
     [Required]
     public decimal From { get; set; }
     

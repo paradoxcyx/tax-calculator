@@ -13,3 +13,8 @@ D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\obj\Debug\net8.0\
 D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\obj\Debug\net8.0\ref\PayspaceTax.Infrastructure.dll
 D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\bin\Debug\net8.0\PayspaceTax.Infrastructure.runtimeconfig.json
 D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\obj\Debug\net8.0\PayspaceTax.Infrastructure.genruntimeconfig.cache
+D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\bin\Debug\net8.0\PayspaceTax.Domain.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\bin\Debug\net8.0\PayspaceTax.Domain.pdb
+D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\obj\Debug\net8.0\PayspaceTax.Infrastructure.csproj.CopyComplete
+D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\bin\Debug\net8.0\PayspaceTax.Application.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Infrastructure\bin\Debug\net8.0\PayspaceTax.Application.pdb

@@ -1,0 +1,13 @@
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\bin\Debug\net8.0\PayspaceTax.Domain.deps.json
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\bin\Debug\net8.0\PayspaceTax.Domain.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\bin\Debug\net8.0\PayspaceTax.Domain.pdb
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\PayspaceTax.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\PayspaceTax.Domain.AssemblyInfoInputs.cache
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\PayspaceTax.Domain.AssemblyInfo.cs
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\PayspaceTax.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\PayspaceTax.Domain.sourcelink.json
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\PayspaceTax.Domain.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\refint\PayspaceTax.Domain.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\PayspaceTax.Domain.pdb
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\ref\PayspaceTax.Domain.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Domain\obj\Debug\net8.0\PayspaceTax.Domain.csproj.AssemblyReference.cache

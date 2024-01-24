@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5sCKVhwcd+/5T4F+bT3EcS9Y+EZLBlrJWs/Y2qTurcVDehe6gj29xFXIu1r2bihERfqBmVRO7vh0m2B7csQujQ==",
+  "dgSpecHash": "Y27XJbTgnp3FzZKtVo39Wkbe7aEiptUG7O4Pn8lax73J5jEAQ17+zNoLjk5FNzuCwWSR2G9NjJQWALWqD8WOTg==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Personal\\tax-calculator\\PayspaceTax.Application\\PayspaceTax.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Heinrich\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

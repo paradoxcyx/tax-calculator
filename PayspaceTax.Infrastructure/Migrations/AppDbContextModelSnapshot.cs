@@ -22,8 +22,34 @@ namespace PayspaceTax.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("PayspaceTax.Infrastructure.Entities.ProgressiveTaxBracket", b =>
+            modelBuilder.Entity("PayspaceTax.Domain.Entities.PostalCodeTaxCalculationType", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TaxCalculationType")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PostalCodeTaxCalculationTypes", (string)null);
+                });
+
+            modelBuilder.Entity("PayspaceTax.Domain.Entities.ProgressiveTaxBracket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<decimal>("From")
                         .HasColumnType("decimal(18,2)");
 
@@ -32,6 +58,8 @@ namespace PayspaceTax.Infrastructure.Migrations
 
                     b.Property<decimal?>("To")
                         .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("ProgressiveTaxBrackets", (string)null);
                 });

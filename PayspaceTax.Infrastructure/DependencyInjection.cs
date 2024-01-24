@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using PayspaceTax.Application.Interfaces.Repositories;
 using PayspaceTax.Infrastructure.Database;
+using PayspaceTax.Infrastructure.Repositories;
 using PayspaceTax.Infrastructure.Util;
 
 namespace PayspaceTax.Infrastructure;
@@ -15,5 +17,8 @@ public static class DependencyInjection
         });
         
         DbSeeder.SeedData(services);
+
+        services.AddScoped<IProgressiveTaxBracketRepository, ProgressiveTaxBracketRepository>();
+        services.AddScoped<IPostalCodeTaxCalculationTypeRepository, PostalCodeTaxCalculationTypeRepository>();
     }
 }

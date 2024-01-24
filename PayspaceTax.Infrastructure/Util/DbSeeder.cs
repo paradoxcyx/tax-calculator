@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using PayspaceTax.Domain.Entities;
+using PayspaceTax.Domain.Enums;
 using PayspaceTax.Infrastructure.Database;
-using PayspaceTax.Infrastructure.Entities;
 
 namespace PayspaceTax.Infrastructure.Util;
 
@@ -14,6 +15,12 @@ public static class DbSeeder
         // Check if the database has been created
         dbContext.Database.EnsureCreated();
 
+        SeedProgressiveTaxBrackets(dbContext);
+        SeedPostalCodeTaxCalculationTypes(dbContext);
+    }
+
+    private static void SeedProgressiveTaxBrackets(AppDbContext dbContext)
+    {
         // Seed default values
         if (dbContext.ProgressiveTaxBrackets.Any()) return;
         
@@ -25,6 +32,19 @@ public static class DbSeeder
             new ProgressiveTaxBracket { From = 171551, To = 372950, RatePercentage = 33 },
             new ProgressiveTaxBracket { From = 372951, To = null, RatePercentage = 35 }
         );
+
+        dbContext.SaveChanges();
+    }
+
+    private static void SeedPostalCodeTaxCalculationTypes(AppDbContext dbContext)
+    {
+        if (dbContext.PostalCodeTaxCalculationTypes.Any()) return;
+        
+        dbContext.PostalCodeTaxCalculationTypes.AddRange(
+            new PostalCodeTaxCalculationType { PostalCode = "7441", TaxCalculationType = (int)TaxCalculationTypeEnum.Progressive },
+            new PostalCodeTaxCalculationType { PostalCode = "A100", TaxCalculationType = (int)TaxCalculationTypeEnum.FlatValue },
+            new PostalCodeTaxCalculationType { PostalCode = "7000", TaxCalculationType = (int)TaxCalculationTypeEnum.FlatRate },
+            new PostalCodeTaxCalculationType { PostalCode = "1000", TaxCalculationType = (int)TaxCalculationTypeEnum.Progressive });
 
         dbContext.SaveChanges();
     }
