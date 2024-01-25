@@ -107,3 +107,9 @@ D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\Moq.dll
 D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
 D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
 D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\AutoMapper.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\PayspaceTax.Application.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\PayspaceTax.Application.pdb

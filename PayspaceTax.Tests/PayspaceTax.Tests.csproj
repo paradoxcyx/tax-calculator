@@ -19,6 +19,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\PayspaceTax.API\PayspaceTax.API.csproj" />
+      <ProjectReference Include="..\PayspaceTax.Application\PayspaceTax.Application.csproj" />
       <ProjectReference Include="..\PayspaceTax.Domain\PayspaceTax.Domain.csproj" />
     </ItemGroup>
 

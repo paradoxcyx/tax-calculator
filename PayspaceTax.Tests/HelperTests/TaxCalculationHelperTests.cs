@@ -1,7 +1,7 @@
 ﻿using Moq;
 using PayspaceTax.Domain.Helpers;
 
-namespace PayspaceTax.Tests
+namespace PayspaceTax.Tests.HelperTests
 {
     public class TaxCalculationHelperTests
     {
