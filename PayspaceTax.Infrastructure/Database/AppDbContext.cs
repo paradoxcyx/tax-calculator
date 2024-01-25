@@ -10,6 +10,8 @@ public class AppDbContext : DbContext
     public DbSet<ProgressiveTaxBracket> ProgressiveTaxBrackets { get; set; }
     
     public DbSet<PostalCodeTaxCalculationType> PostalCodeTaxCalculationTypes { get; set; }
+    
+    public DbSet<TaxCalculationHistory> TaxCalculationHistories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -20,5 +22,13 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<PostalCodeTaxCalculationType>()
             .ToTable("PostalCodeTaxCalculationTypes")
             .HasKey(x => x.Id);
+
+        modelBuilder.Entity<TaxCalculationHistory>()
+            .ToTable("TaxCalculationHistories")
+            .HasKey(x => x.Id);
+
+        modelBuilder.Entity<TaxCalculationHistory>()
+            .Property(t => t.CalculatedDate)
+            .HasDefaultValueSql("GETDATE()");
     }
 }

@@ -20,5 +20,6 @@ public static class DependencyInjection
 
         services.AddScoped<IProgressiveTaxBracketRepository, ProgressiveTaxBracketRepository>();
         services.AddScoped<IPostalCodeTaxCalculationTypeRepository, PostalCodeTaxCalculationTypeRepository>();
+        services.AddScoped<ITaxCalculationHistoryRepository, TaxCalculationHistoryRepository>();
     }
 }

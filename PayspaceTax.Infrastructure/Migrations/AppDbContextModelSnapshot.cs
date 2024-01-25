@@ -63,6 +63,34 @@ namespace PayspaceTax.Infrastructure.Migrations
 
                     b.ToTable("ProgressiveTaxBrackets", (string)null);
                 });
+
+            modelBuilder.Entity("PayspaceTax.Domain.Entities.TaxCalculationHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("AnnualIncome")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CalculatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Tax")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TaxCalculationHistories", (string)null);
+                });
 #pragma warning restore 612, 618
         }
     }

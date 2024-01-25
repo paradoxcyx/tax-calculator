@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PayspaceTax.API.Shared.Models;
 using PayspaceTax.Application.DTOs;
@@ -7,24 +8,21 @@ namespace PayspaceTax.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaxCalculatorController(ITaxCalculationService taxCalculationService) : ControllerBase
+    public class TaxCalculatorController(ITaxCalculationService taxCalculationService, IMapper mapper) : ControllerBase
     {
-
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok();
-        }
-
         [HttpPost("CalculateTax")]
         public async Task<IActionResult> CalculateTax([FromBody] CalculateTaxInput input)
         {
-            var taxCalculation = await taxCalculationService.CalculateTaxAsync(new CalculateTaxDto
-            {
-                AnnualIncome = input.AnnualIncome,
-                PostalCode = input.PostalCode
-            });
+            var calculationDto = mapper.Map<CalculateTaxDto>(input);
+            var taxCalculation = await taxCalculationService.CalculateTaxAsync(calculationDto);
 
+            return Ok();
+        }
+
+        [HttpGet("History")]
+        public async Task<IActionResult> GetHistory()
+        {
+            await Task.CompletedTask;
             return Ok();
         }
     }

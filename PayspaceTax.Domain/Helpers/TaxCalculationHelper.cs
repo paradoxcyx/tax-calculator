@@ -2,25 +2,26 @@
 
 namespace PayspaceTax.Domain.Helpers;
 
-public class TaxCalculationHelper : ITaxCalculationHelper
+public class TaxCalculationHelper
 {
     public decimal CalculateProgressiveTax(decimal income, decimal ratePercentage)
     {
-        return income * (ratePercentage/1000);
+        return Math.Round(income * (ratePercentage/100),2);
     }
 
     public decimal CalculateFlatValueTax(decimal income)
     {
+        
         if (income < TaxConsts.FlatValueThreshold)
         {
-            return income * (TaxConsts.FlatValuePercentage/100);
+            return Math.Round(income * (TaxConsts.FlatValuePercentage/100),2);
         }
 
-        return TaxConsts.FlatValueFixedAmount;
+        return Math.Round(TaxConsts.FlatValueFixedAmount,2);
     }
 
     public decimal CalculateFlatRateTax(decimal income)
     {
-        return income * (TaxConsts.FlatRatePercentage/100);
+        return Math.Round(income * (TaxConsts.FlatRatePercentage/100),2);
     }
 }

@@ -1,57 +1,64 @@
-﻿using NUnit.Framework;
-using Moq;
+﻿using Moq;
 using PayspaceTax.Domain.Helpers;
-using System.Diagnostics;
 
 namespace PayspaceTax.Tests
 {
     public class TaxCalculationHelperTests
     {
-        private ITaxCalculationHelper _taxCalculationHelper;
+        private TaxCalculationHelper taxCalculationHelper;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            // Your one-time setup logic goes here, if needed
+            // Create a mock for ITaxCalculationHelper
+            var taxCalculationHelperMock = new Mock<TaxCalculationHelper>();
+
+            // Set up any necessary behavior for the mock
+
+            // Assign the mock to the private field
+            taxCalculationHelper = taxCalculationHelperMock.Object;
         }
+        
 
-        [SetUp]
-        public void Setup()
+        [Test]
+        [TestCase(5000, 10, 500)]
+        [TestCase(31983, 15, 4797.45)]
+        [TestCase(41934, 25, 10483.50)]
+        [TestCase(102587, 28, 28724.36)]
+        [TestCase(185000, 33, 61050)]
+        [TestCase(585000, 35, 204750)]
+        public void CalculateProgressiveTax_TestCases(decimal annualIncome, decimal rate, decimal expectedTax)
         {
-            try
-            {
-                // Create a mock for ITaxCalculationHelper
-                var taxCalculationHelperMock = new Mock<ITaxCalculationHelper>();
+            
+            // Call the method under test using the mocked ITaxCalculationHelper
+            var tax = taxCalculationHelper.CalculateProgressiveTax(annualIncome, rate);
 
-                // Set up any necessary behavior for the mock
-
-                // Assign the mock to the private field
-                _taxCalculationHelper = taxCalculationHelperMock.Object;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Setup failed: {ex.Message}");
-                throw; // Rethrow the exception to indicate setup failure
-            }
+            // Perform assertions
+            Assert.That(tax, Is.EqualTo(expectedTax));
+           
         }
 
         [Test]
-        [TestCase(5000, 10, 50)]
-        public void CalculateProgressiveTax_TestCases(decimal annualIncome, decimal rate, decimal expectedTax)
+        [TestCase(105000, 5250)]
+        [TestCase(109999.99, 5500)]
+        [TestCase(201342.10, 10000)]
+        [TestCase(505154.32, 10000)]
+        [TestCase(205431.54, 10000)]
+        public void CalculateFlatValueTax_TestCases(decimal annualIncome, decimal expectedTax)
         {
-            try
-            {
-                // Call the method under test using the mocked ITaxCalculationHelper
-                var tax = _taxCalculationHelper.CalculateProgressiveTax(annualIncome, rate);
+            var tax = taxCalculationHelper.CalculateFlatValueTax(annualIncome);
+            
+            Assert.That(tax, Is.EqualTo(expectedTax));
+        }
 
-                // Perform assertions
-                Assert.That(tax, Is.EqualTo(expectedTax));
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Test failed: {ex.Message}");
-                throw; // Rethrow the exception to indicate test failure
-            }
+        [Test]
+        [TestCase(105325,18431.88)]
+        [TestCase(90543.33,15845.08)]
+        public void CalculateFlatRateTax_TestCases(decimal annualIncome, decimal expectedTax)
+        {
+            var tax = taxCalculationHelper.CalculateFlatRateTax(annualIncome);
+            
+            Assert.That(tax, Is.EqualTo(expectedTax));
         }
     }
 }

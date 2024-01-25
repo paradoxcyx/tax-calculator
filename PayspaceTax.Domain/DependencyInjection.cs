@@ -7,6 +7,6 @@ public static class DependencyInjection
 {
     public static void AddDomain(this IServiceCollection services)
     {
-        services.AddScoped<ITaxCalculationHelper, TaxCalculationHelper>();
+        services.AddScoped<TaxCalculationHelper>();
     }
 }

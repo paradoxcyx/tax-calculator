@@ -1,6 +1,7 @@
 using PayspaceTax.Application;
 using PayspaceTax.Domain;
 using PayspaceTax.Infrastructure;
+using PayspaceTax.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMapping();
 builder.Services.AddDomain();
 builder.Services.AddInfrastructure(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
 builder.Services.AddApplication();
