@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace PayspaceTax.Web.Shared.Models;
+namespace PayspaceTax.Web.Shared.Models.TaxCalculator;
 
-public class TaxCalculationModel
+public class TaxCalculationViewModel
 {
     [DisplayName("Postal Code")]
     [Required(ErrorMessage = "Postal Code is required")]

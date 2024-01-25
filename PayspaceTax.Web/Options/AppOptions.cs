@@ -1,6 +1,6 @@
 ﻿namespace PayspaceTax.Web.Options;
 
-public class AppSettings
+public class AppOptions
 {
     public string ServerUrl { get; set; }
 }

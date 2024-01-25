@@ -6,13 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var appSettings = new AppSettings();
-builder.Configuration.GetSection("AppSettings").Bind(appSettings);
-builder.Services.AddSingleton(appSettings);
+builder.Services.AddScoped<IApiService, ApiService>();
 
-builder.Services.AddScoped<ApiService>();
+//builder.Services.Configure<AppOptions>(options => builder.Configuration.GetSection("App").Bind(options));
 
 var app = builder.Build();
+builder.Services.Configure<AppOptions>(options => builder.Configuration.GetSection("App").Bind(options));
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
