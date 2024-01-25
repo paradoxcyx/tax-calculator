@@ -1,7 +1,16 @@
+using PayspaceTax.Web.Options;
+using PayspaceTax.Web.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var appSettings = new AppSettings();
+builder.Configuration.GetSection("AppSettings").Bind(appSettings);
+builder.Services.AddSingleton(appSettings);
+
+builder.Services.AddScoped<ApiService>();
 
 var app = builder.Build();
 

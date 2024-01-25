@@ -14,9 +14,9 @@ namespace PayspaceTax.API.Controllers
         public async Task<IActionResult> CalculateTax([FromBody] CalculateTaxInput input)
         {
             var calculationDto = mapper.Map<CalculateTaxDto>(input);
-            var taxCalculation = await taxCalculationService.CalculateTaxAsync(calculationDto);
+            var taxCalculationResult = await taxCalculationService.CalculateTaxAsync(calculationDto);
 
-            return Ok();
+            return Ok(taxCalculationResult);
         }
 
         [HttpGet("History")]

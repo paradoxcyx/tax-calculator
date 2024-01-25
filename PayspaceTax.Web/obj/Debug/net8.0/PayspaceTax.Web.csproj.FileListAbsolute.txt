@@ -33,3 +33,4 @@ D:\Projects\Personal\tax-calculator\PayspaceTax.Web\bin\Debug\net8.0\PayspaceTax
 D:\Projects\Personal\tax-calculator\PayspaceTax.Web\obj\Debug\net8.0\PayspaceTax.Web.csproj.AssemblyReference.cache
 D:\Projects\Personal\tax-calculator\PayspaceTax.Web\obj\Debug\net8.0\PayspaceTax.Web.sourcelink.json
 D:\Projects\Personal\tax-calculator\PayspaceTax.Web\obj\Debug\net8.0\PayspaceTax.Web.csproj.CopyComplete
+D:\Projects\Personal\tax-calculator\PayspaceTax.Web\bin\Debug\net8.0\RestSharp.dll

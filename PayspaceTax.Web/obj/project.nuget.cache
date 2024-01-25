@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "R3d7hV8j/uvDj5m6BbOPLP+V0imhN3R7Su5Ws1UluCORajgmqUCqz5YNaWWTCw9AKg1Cs7cq6pJltJ7vp/5TYw==",
+  "dgSpecHash": "4Dlu7S5YjQslpPp7Nu0uDI8ruhs4v7BIH4tO2DyCYWa3sEThUod46c0mQclvYTlblkiP6E5tJM+9C6nK212znA==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Personal\\tax-calculator\\PayspaceTax.Web\\PayspaceTax.Web.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Heinrich\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
+    "C:\\Users\\Heinrich\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\Heinrich\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

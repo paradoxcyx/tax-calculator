@@ -1,27 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PayspaceTax.Web.Services;
 using PayspaceTax.Web.Shared.Models;
 
 namespace PayspaceTax.Web.Controllers;
 
-public class TaxCalculatorController : Controller
+public class TaxCalculatorController(ApiService api) : Controller
 {
-    // GET
     public IActionResult Index()
     {
-        return View();
+        return View(new TaxCalculationModel());
     }
 
     [HttpPost]
-    public IActionResult Index(string postalCode, decimal annualIncome)
+    public async Task<IActionResult> Index(TaxCalculationModel model)
     {
-        // Create a model to hold the result
-        var resultModel = new TaxCalculationResultModel
-        {
-            PostalCode = postalCode,
-            AnnualIncome = annualIncome,
-            TaxAmount = 0
-        };
+        if (!ModelState.IsValid)
+            View(model);
 
-        return View(resultModel);
+        var result = await api.CalculateTax(model);
+
+        return View(result);
     }
 }
