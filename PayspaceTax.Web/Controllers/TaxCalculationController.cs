@@ -1,15 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PayspaceTax.Web.Services;
-using PayspaceTax.Web.Shared.Models;
-using PayspaceTax.Web.Shared.Models.TaxCalculator;
+using PayspaceTax.Web.Shared.Models.TaxCalculation;
 
 namespace PayspaceTax.Web.Controllers;
 
-public class TaxCalculatorController(IApiService api) : Controller
+public class TaxCalculationController(TaxCalculationApiService api) : Controller
 {
     public IActionResult Index()
     {
         return View(new TaxCalculationViewModel());
+    }
+
+    public async Task<IActionResult> History()
+    {
+        var history = await api.GetHistory();
+
+        return View(history);
     }
 
     [HttpPost]

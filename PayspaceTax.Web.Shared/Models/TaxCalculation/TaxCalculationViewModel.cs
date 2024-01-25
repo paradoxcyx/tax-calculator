@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace PayspaceTax.Web.Shared.Models.TaxCalculator;
+namespace PayspaceTax.Web.Shared.Models.TaxCalculation;
 
 public class TaxCalculationViewModel
 {

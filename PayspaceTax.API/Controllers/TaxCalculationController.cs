@@ -8,7 +8,7 @@ namespace PayspaceTax.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaxCalculatorController(ITaxCalculationService taxCalculationService, IMapper mapper) : ControllerBase
+    public class TaxCalculationController(ITaxCalculationService taxCalculationService, ITaxCalculationHistoryService taxCalculationHistoryService, IMapper mapper) : ControllerBase
     {
         [HttpPost("CalculateTax")]
         public async Task<IActionResult> CalculateTax([FromBody] CalculateTaxInput input)
@@ -22,8 +22,8 @@ namespace PayspaceTax.API.Controllers
         [HttpGet("History")]
         public async Task<IActionResult> GetHistory()
         {
-            await Task.CompletedTask;
-            return Ok();
+            var history = await taxCalculationHistoryService.GetTaxCalculationHistoryAsync();
+            return Ok(history);
         }
     }
 }

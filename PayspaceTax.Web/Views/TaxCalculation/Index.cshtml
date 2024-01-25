@@ -1,16 +1,16 @@
 ﻿<!-- YourRazorViewName.cshtml -->
-@model PayspaceTax.Web.Shared.Models.TaxCalculator.TaxCalculationViewModel
+@model TaxCalculationViewModel
 
 @{
     ViewData["Title"] = "Tax Calculator";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Tax Calculator</h1>
+    <h1 class="display-4 mb-5"><strong class="text-primary">Tax</strong> Calculator</h1>
 
     <div class="row justify-content-start align-items-center">
         
-        @using (Html.BeginForm("Index", "TaxCalculator", FormMethod.Post))
+        @using (Html.BeginForm("Index", "TaxCalculation", FormMethod.Post))
         {
             <div class="form-group text-start mb-5">
                 @Html.LabelFor(model => model.PostalCode, new { @class = "form-label" })

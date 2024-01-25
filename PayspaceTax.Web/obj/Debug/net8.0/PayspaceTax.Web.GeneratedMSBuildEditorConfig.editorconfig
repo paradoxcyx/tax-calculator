@@ -34,8 +34,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Personal/tax-calculator/PayspaceTax.Web/Views/TaxCalculator/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGF4Q2FsY3VsYXRvclxJbmRleC5jc2h0bWw=
+[D:/Projects/Personal/tax-calculator/PayspaceTax.Web/Views/TaxCalculation/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGF4Q2FsY3VsYXRpb25cSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Personal/tax-calculator/PayspaceTax.Web/Views/TaxCalculation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGF4Q2FsY3VsYXRpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Personal/tax-calculator/PayspaceTax.Web/Views/_ViewImports.cshtml]

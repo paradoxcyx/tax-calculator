@@ -1,4 +1,4 @@
-﻿namespace PayspaceTax.Web.Options;
+﻿namespace PayspaceTax.Web.Shared.Options;
 
 public class AppOptions
 {

@@ -1,17 +1,16 @@
-using PayspaceTax.Web.Options;
 using PayspaceTax.Web.Services;
+using PayspaceTax.Web.Shared.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<IApiService, ApiService>();
+builder.Services.Configure<AppOptions>(options => builder.Configuration.GetSection("App").Bind(options));
+builder.Services.AddScoped<TaxCalculationApiService>();
 
-//builder.Services.Configure<AppOptions>(options => builder.Configuration.GetSection("App").Bind(options));
 
 var app = builder.Build();
-builder.Services.Configure<AppOptions>(options => builder.Configuration.GetSection("App").Bind(options));
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -30,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=TaxCalculator}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

@@ -1,0 +1,49 @@
+﻿@model List<TaxCalculationHistoryViewModel>
+
+@{
+    ViewData["Title"] = "Tax Calculation History";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-5"><strong class="text-primary">Tax Calculation</strong> History</h1>
+    
+    <div class="row justify-content-start align-items-center">
+        <table class="table table-striped">
+            <thead>
+                <tr class="bg-secondary text-primary">
+                    <th>
+                        Postal Code
+                    </th>
+                    <th>
+                        Annual Income
+                    </th>
+                    <th>
+                        Tax
+                    </th>
+                    <th>
+                        Calculated Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var history in Model)
+            {
+                <tr>
+                    <td>
+                        @history.PostalCode
+                    </td>
+                    <td>
+                        @history.AnnualIncome
+                    </td>
+                    <td>
+                        @history.Tax
+                    </td>
+                    <td>
+                        @history.CalculatedDate
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

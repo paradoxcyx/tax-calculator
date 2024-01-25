@@ -1,25 +1,16 @@
 ﻿using Microsoft.Extensions.Options;
-using PayspaceTax.Web.Options;
-using PayspaceTax.Web.Shared.Models.TaxCalculator;
+using PayspaceTax.Web.Shared.Options;
 using RestSharp;
 
 namespace PayspaceTax.Web.Services;
 
-public class ApiService(IOptions<AppOptions> appOptions) : IApiService
+public class ApiService
 {
-    private readonly RestClient _restClient = new(appOptions.Value.ServerUrl);
-
-    public async Task<TaxCalculationViewModel?> CalculateTax(TaxCalculationViewModel model)
+    protected readonly RestClient RestClient;
+    
+    // ReSharper disable once ConvertToPrimaryConstructor
+    protected ApiService(IOptions<AppOptions> appOptions)
     {
-        // Create request
-        var request = new RestRequest("api/TaxCalculator/CalculateTax", Method.Post);
-        
-        // Add JSON body if needed
-        request.AddJsonBody(model);
-
-        // Execute the request
-        var response = await _restClient.ExecuteAsync<TaxCalculationViewModel>(request);
-
-        return response.Data;
+        RestClient = new RestClient(appOptions.Value.ServerUrl);
     }
 }
