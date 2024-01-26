@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using PayspaceTax.Web.Models;
+using PayspaceTax.Web.Shared.Models;
 
 namespace PayspaceTax.Web.Controllers;
 

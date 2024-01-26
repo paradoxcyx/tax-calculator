@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PayspaceTax.Web.Services;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using PayspaceTax.Web.Shared.Models;
 using PayspaceTax.Web.Shared.Models.TaxCalculation;
+using PayspaceTax.Web.Shared.Services;
 
 namespace PayspaceTax.Web.Controllers;
 
@@ -13,9 +15,14 @@ public class TaxCalculationController(TaxCalculationApiService api) : Controller
 
     public async Task<IActionResult> History()
     {
-        var history = await api.GetHistory();
-
-        return View(history);
+        var result = await api.GetHistory();
+        
+        if (result is not { Success: true })
+        {
+            //TODO: Throw error
+        }
+        
+        return View(result!.Data);
     }
 
     [HttpPost]
@@ -26,6 +33,18 @@ public class TaxCalculationController(TaxCalculationApiService api) : Controller
 
         var result = await api.CalculateTax(model);
 
-        return View(result);
+        if (result is not { Success: true })
+        {
+            RedirectToAction("Error", result?.Message);
+            //TODO: Throw error
+        }
+        
+        return View(result!.Data);
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error(string? message)
+    {
+        return View(new ErrorViewModel { RequestId = message });
     }
 }

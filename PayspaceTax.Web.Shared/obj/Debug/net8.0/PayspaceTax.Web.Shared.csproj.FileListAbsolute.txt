@@ -10,3 +10,4 @@ D:\Projects\Personal\tax-calculator\PayspaceTax.Web.Shared\obj\Debug\net8.0\Pays
 D:\Projects\Personal\tax-calculator\PayspaceTax.Web.Shared\obj\Debug\net8.0\refint\PayspaceTax.Web.Shared.dll
 D:\Projects\Personal\tax-calculator\PayspaceTax.Web.Shared\obj\Debug\net8.0\PayspaceTax.Web.Shared.pdb
 D:\Projects\Personal\tax-calculator\PayspaceTax.Web.Shared\obj\Debug\net8.0\ref\PayspaceTax.Web.Shared.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Web.Shared\obj\Debug\net8.0\PayspaceTax.Web.Shared.csproj.AssemblyReference.cache

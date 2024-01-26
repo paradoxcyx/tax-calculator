@@ -11,6 +11,8 @@ public class TaxCalculationHistoryProfile : Profile
         CreateMap<CalculateTaxDto, TaxCalculationHistory>()
             .ForMember(dest => dest.Tax, opt => opt.MapFrom(src => src.Tax ?? 0));
 
-        CreateMap<TaxCalculationHistory, TaxCalculationHistoryDto>();
+        CreateMap<CalculateTaxDto, TaxCalculationHistoryDto>();
+        
+        CreateMap<TaxCalculationHistory, TaxCalculationHistoryDto>().ReverseMap();
     }
 }

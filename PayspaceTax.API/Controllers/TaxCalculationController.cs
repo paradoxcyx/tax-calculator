@@ -16,14 +16,17 @@ namespace PayspaceTax.API.Controllers
             var calculationDto = mapper.Map<CalculateTaxDto>(input);
             var taxCalculationResult = await taxCalculationService.CalculateTaxAsync(calculationDto);
 
-            return Ok(taxCalculationResult);
+            var history = mapper.Map<TaxCalculationHistoryDto>(taxCalculationResult);
+            await taxCalculationHistoryService.AddAsync(history);
+            
+            return Ok(new GenericResponseModel<CalculateTaxDto> {Success = true, Data = calculationDto, Message = "Calculated tax successfully"});
         }
 
         [HttpGet("History")]
         public async Task<IActionResult> GetHistory()
         {
             var history = await taxCalculationHistoryService.GetTaxCalculationHistoryAsync();
-            return Ok(history);
+            return Ok(new GenericResponseModel<List<TaxCalculationHistoryDto>> {Success = true, Data = history, Message = "Tax calculation history successfully retrieved"});
         }
     }
 }

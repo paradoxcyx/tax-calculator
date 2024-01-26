@@ -9,4 +9,11 @@ public interface ITaxCalculationHistoryService
     /// </summary>
     /// <returns>Historic tax calculations</returns>
     public Task<List<TaxCalculationHistoryDto>> GetTaxCalculationHistoryAsync();
+
+    /// <summary>
+    /// Log history for tax calculation
+    /// </summary>
+    /// <param name="history">The historic tax calculation</param>
+    /// <returns></returns>
+    public Task AddAsync(TaxCalculationHistoryDto history);
 }

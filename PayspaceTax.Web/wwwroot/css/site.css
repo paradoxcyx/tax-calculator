@@ -21,11 +21,12 @@ body {
   margin-bottom: 60px;
 }
 
-.btn-primary {
-  
-}
 .text-primary {
   color: #00c72f !important;
+}
+
+.field-validation-error {
+  color: red !important;
 }
 
 .btn-primary {

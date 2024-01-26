@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using PayspaceTax.Application.DTOs;
+﻿using PayspaceTax.Application.DTOs;
 using PayspaceTax.Application.Interfaces.Repositories;
 using PayspaceTax.Application.Interfaces.Services;
-using PayspaceTax.Domain.Entities;
 using PayspaceTax.Domain.Enums;
 using PayspaceTax.Domain.Exceptions;
 using PayspaceTax.Domain.Helpers;
@@ -11,9 +9,7 @@ namespace PayspaceTax.Application.Services;
 
 public class TaxCalculationService(
     IProgressiveTaxBracketRepository progressiveTaxBracketRepository, 
-    IPostalCodeTaxCalculationTypeRepository postalCodeTaxCalculationTypeRepository, 
-    ITaxCalculationHistoryRepository taxCalculationHistoryRepository,
-    IMapper mapper,
+    IPostalCodeTaxCalculationTypeRepository postalCodeTaxCalculationTypeRepository,
     TaxCalculationHelper taxCalculationHelper)
     : ITaxCalculationService
 {
@@ -27,9 +23,6 @@ public class TaxCalculationService(
                 throw new TaxCalculationException($"Calculation Type for postal code {calculateTax.PostalCode} does not exist");
 
             calculateTax.Tax = await CalculateTaxBasedOnTypeAsync(calculateTax.AnnualIncome, (TaxCalculationTypeEnum)calculationType.TaxCalculationType);
-
-            var history = mapper.Map<TaxCalculationHistory>(calculateTax);
-            await taxCalculationHistoryRepository.AddAsync(history);
         }
         catch (Exception ex)
         {
