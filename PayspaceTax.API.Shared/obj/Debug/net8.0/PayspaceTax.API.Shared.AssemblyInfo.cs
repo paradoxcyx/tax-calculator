@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PayspaceTax.API.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70a8a8934d6231e2eef06d6276fdc1f9fd542395")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("PayspaceTax.API.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PayspaceTax.API.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PayspaceTax.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c25dc21ff86104abbf1c757e61d227bab32ff98")]
 [assembly: System.Reflection.AssemblyProductAttribute("PayspaceTax.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PayspaceTax.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

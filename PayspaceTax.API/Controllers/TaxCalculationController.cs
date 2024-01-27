@@ -13,9 +13,11 @@ namespace PayspaceTax.API.Controllers
         [HttpPost("CalculateTax")]
         public async Task<IActionResult> CalculateTax([FromBody] CalculateTaxInput input)
         {
+            //Calculate tax by using business logic defined in the service
             var calculationDto = mapper.Map<CalculateTaxDto>(input);
             var taxCalculationResult = await taxCalculationService.CalculateTaxAsync(calculationDto);
 
+            //Adding calculation history to database
             var history = mapper.Map<TaxCalculationHistoryDto>(taxCalculationResult);
             await taxCalculationHistoryService.AddAsync(history);
             

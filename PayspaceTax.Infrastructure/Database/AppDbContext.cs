@@ -5,9 +5,13 @@ namespace PayspaceTax.Infrastructure.Database;
 
 public class AppDbContext : DbContext
 {
+    public AppDbContext()
+    {
+    }
+
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
     
-    public DbSet<ProgressiveTaxBracket> ProgressiveTaxBrackets { get; set; }
+    public virtual DbSet<ProgressiveTaxBracket> ProgressiveTaxBrackets { get; set; }
     
     public DbSet<PostalCodeTaxCalculationType> PostalCodeTaxCalculationTypes { get; set; }
     

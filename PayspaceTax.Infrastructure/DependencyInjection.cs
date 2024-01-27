@@ -4,7 +4,7 @@ using PayspaceTax.Application.Interfaces.Repositories;
 using PayspaceTax.Infrastructure.Database;
 using PayspaceTax.Infrastructure.Repositories;
 using PayspaceTax.Infrastructure.Util;
-
+using PayspaceTax.Domain.Entities;
 namespace PayspaceTax.Infrastructure;
 
 public static class DependencyInjection
@@ -17,9 +17,9 @@ public static class DependencyInjection
         });
         
         DbSeeder.SeedData(services);
-
-        services.AddScoped<IProgressiveTaxBracketRepository, ProgressiveTaxBracketRepository>();
-        services.AddScoped<IPostalCodeTaxCalculationTypeRepository, PostalCodeTaxCalculationTypeRepository>();
-        services.AddScoped<ITaxCalculationHistoryRepository, TaxCalculationHistoryRepository>();
+        
+        services.AddScoped<IRepository<PostalCodeTaxCalculationType>, Repository<PostalCodeTaxCalculationType>>();
+        services.AddScoped<IRepository<ProgressiveTaxBracket>, Repository<ProgressiveTaxBracket>>();
+        services.AddScoped<IRepository<TaxCalculationHistory>, Repository<TaxCalculationHistory>>();
     }
 }

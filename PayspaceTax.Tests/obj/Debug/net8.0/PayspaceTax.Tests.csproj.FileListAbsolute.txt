@@ -341,3 +341,11 @@ D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\PayspaceT
 D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\PayspaceTax.API.Shared.pdb
 D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\PayspaceTax.Infrastructure.pdb
 D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\PayspaceTax.Mapping.pdb
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\EntityFramework.SqlServer.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\EntityFramework.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Projects\Personal\tax-calculator\PayspaceTax.Tests\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

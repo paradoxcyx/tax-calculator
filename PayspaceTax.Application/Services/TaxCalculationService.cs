@@ -1,6 +1,8 @@
-﻿using PayspaceTax.Application.DTOs;
+﻿using Microsoft.EntityFrameworkCore;
+using PayspaceTax.Application.DTOs;
 using PayspaceTax.Application.Interfaces.Repositories;
 using PayspaceTax.Application.Interfaces.Services;
+using PayspaceTax.Domain.Entities;
 using PayspaceTax.Domain.Enums;
 using PayspaceTax.Domain.Exceptions;
 using PayspaceTax.Domain.Helpers;
@@ -8,28 +10,23 @@ using PayspaceTax.Domain.Helpers;
 namespace PayspaceTax.Application.Services;
 
 public class TaxCalculationService(
-    IProgressiveTaxBracketRepository progressiveTaxBracketRepository, 
-    IPostalCodeTaxCalculationTypeRepository postalCodeTaxCalculationTypeRepository,
+    IRepository<ProgressiveTaxBracket> progressiveTaxBracketRepository,
+    IRepository<PostalCodeTaxCalculationType> postalCodeTaxCalculationTypeRepository,
     TaxCalculationHelper taxCalculationHelper)
     : ITaxCalculationService
 {
     public async Task<CalculateTaxDto> CalculateTaxAsync(CalculateTaxDto calculateTax)
     {
-        try
-        {
-            var calculationType = await postalCodeTaxCalculationTypeRepository.GetTaxCalculationTypeByPostalCode(calculateTax.PostalCode);
+        var calculationType =
+            await postalCodeTaxCalculationTypeRepository
+                .GetAll()
+                .FirstOrDefaultAsync(x => x.PostalCode.Equals(calculateTax.PostalCode));
+        
+        if (calculationType == null)
+            throw new PaySpaceTaxException($"{calculateTax.PostalCode} is an invalid Postal Code");
 
-            if (calculationType == null)
-                throw new TaxCalculationException($"Calculation Type for postal code {calculateTax.PostalCode} does not exist");
-
-            calculateTax.Tax = await CalculateTaxBasedOnTypeAsync(calculateTax.AnnualIncome, (TaxCalculationTypeEnum)calculationType.TaxCalculationType);
-        }
-        catch (Exception ex)
-        {
-            // Log the exception or handle it according to your application's needs
-            throw new TaxCalculationException($"Error calculating tax: {ex.Message}");
-        }
-
+        calculateTax.Tax = await CalculateTaxBasedOnTypeAsync(calculateTax.AnnualIncome, (TaxCalculationTypeEnum)calculationType.TaxCalculationType);
+        
         return calculateTax;
     }
 
@@ -38,9 +35,13 @@ public class TaxCalculationService(
         switch (calculationType)
         {
             case TaxCalculationTypeEnum.Progressive:
-                var taxBracket = await progressiveTaxBracketRepository.GetProgressiveTaxBracketByIncomeAsync(annualIncome);
+                
+                var taxBracket = await progressiveTaxBracketRepository.GetAll().FirstOrDefaultAsync(x =>
+                    (x.To.HasValue && x.From <= annualIncome && x.To >= annualIncome) ||
+                    (!x.To.HasValue && x.From <= annualIncome));
+                
                 if (taxBracket == null)
-                    throw new TaxCalculationException("Tax bracket does not exist");
+                    throw new PaySpaceTaxException("Progressive Tax Bracket does not exist");
                 
                 return taxCalculationHelper.CalculateProgressiveTax(annualIncome, taxBracket.RatePercentage);
 
@@ -51,7 +52,7 @@ public class TaxCalculationService(
                 return taxCalculationHelper.CalculateFlatValueTax(annualIncome);
 
             default:
-                throw new TaxCalculationException("Invalid tax calculation type");
+                throw new PaySpaceTaxException("Tax Calculation Type not found");
         }
     }
 }
