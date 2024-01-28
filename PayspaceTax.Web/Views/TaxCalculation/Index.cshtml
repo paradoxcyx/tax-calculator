@@ -27,7 +27,7 @@
             
             <div class="form-group text-start mb-5">
                 @Html.LabelFor(model => model.TaxData!.AnnualIncome, new { @class = "form-label" })
-                @Html.TextBoxFor(model => model.TaxData!.AnnualIncome, new {min = "0", type = "number", @class = "form-control" })
+                @Html.TextBoxFor(model => model.TaxData!.AnnualIncome, new {min = "1", type = "number", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.TaxData!.AnnualIncome)
             </div>
             
