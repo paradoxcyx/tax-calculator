@@ -1,4 +1,6 @@
-﻿using PayspaceTax.Application.Interfaces.Repositories;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+using PayspaceTax.Application.Interfaces.Repositories;
 using PayspaceTax.Infrastructure.Database;
 
 namespace PayspaceTax.Infrastructure.Repositories;
@@ -29,5 +31,10 @@ public class Repository<T> : IRepository<T> where T: class
     {
         await _context.Set<T>().AddRangeAsync(entities);
         await _context.SaveChangesAsync();
+    }
+    
+    public async Task<T?> GetFirstByAsync(Expression<Func<T, bool>> predicate)
+    {
+        return await _context.Set<T>().FirstOrDefaultAsync(predicate);
     }
 }

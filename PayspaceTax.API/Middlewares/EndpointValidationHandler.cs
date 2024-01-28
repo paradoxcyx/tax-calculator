@@ -4,6 +4,10 @@ using PayspaceTax.API.Shared.Models;
 
 namespace PayspaceTax.API.Middlewares;
 
+/// <summary>
+/// This handler will catch any validation errors within the endpoints that was missed on the front-end
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class EndpointValidationHandler<T> : ObjectResult
 {
     public EndpointValidationHandler(ActionContext context) : base(new GenericResponseModel<T?>

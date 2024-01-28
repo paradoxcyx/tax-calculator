@@ -5,6 +5,10 @@ using PayspaceTax.Domain.Exceptions;
 
 namespace PayspaceTax.API.Middlewares;
 
+/// <summary>
+/// Globally handle all exceptions in the application and return a generic response model to front-end
+/// </summary>
+/// <param name="logger"></param>
 public class GlobalExceptionHandlerAttribute(ILogger<GlobalExceptionHandlerAttribute> logger) : ExceptionFilterAttribute
 {
 

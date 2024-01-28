@@ -1,4 +1,6 @@
-﻿namespace PayspaceTax.Application.Interfaces.Repositories;
+﻿using System.Linq.Expressions;
+
+namespace PayspaceTax.Application.Interfaces.Repositories;
 
 public interface IRepository<T>
 {
@@ -21,5 +23,7 @@ public interface IRepository<T>
     /// <param name="entities">Entities</param>
     /// <returns></returns>
     Task AddRangeAsync(IEnumerable<T> entities);
+
+    Task<T?> GetFirstByAsync(Expression<Func<T, bool>> predicate);
 
 }
