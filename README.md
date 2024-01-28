@@ -10,7 +10,7 @@ This is a Tax Calculator assessment by **PaySpace**
 
 ![Import Data-tier Application](image.png)
 
-- Ensure that the database name is `PayspaceTax` afer the restore.
+- Ensure that the database name is `PayspaceTax` after the restore.
 
 ### 2. Open the solution
 
