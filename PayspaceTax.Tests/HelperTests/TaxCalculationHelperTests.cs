@@ -1,5 +1,4 @@
-﻿using Moq;
-using PayspaceTax.Domain.Helpers;
+﻿using PayspaceTax.Domain.Helpers;
 
 namespace PayspaceTax.Tests.HelperTests
 {
@@ -14,6 +13,12 @@ namespace PayspaceTax.Tests.HelperTests
         }
         
 
+        /// <summary>
+        /// Simple unit test to ensure that the progressive tax is being calculated correctly according to the rules defined
+        /// </summary>
+        /// <param name="annualIncome">The annual income</param>
+        /// <param name="rate">The rate percentage</param>
+        /// <param name="expectedTax">The expected tax amount</param>
         [Test]
         [TestCase(5000, 10, 500)]
         [TestCase(31983, 15, 4797.45)]
@@ -23,8 +28,6 @@ namespace PayspaceTax.Tests.HelperTests
         [TestCase(585000, 35, 204750)]
         public void CalculateProgressiveTax_TestCases(decimal annualIncome, decimal rate, decimal expectedTax)
         {
-            
-            // Call the method under test using the mocked ITaxCalculationHelper
             var tax = taxCalculationHelper.CalculateProgressiveTax(annualIncome, rate);
 
             // Perform assertions
@@ -32,6 +35,11 @@ namespace PayspaceTax.Tests.HelperTests
            
         }
 
+        /// <summary>
+        /// Simple unit test to ensure that the flat value tax is being calculated correctly according to the rules defined
+        /// </summary>
+        /// <param name="annualIncome">The annual income</param>
+        /// <param name="expectedTax">The expected tax amount</param>
         [Test]
         [TestCase(105000, 5250)]
         [TestCase(109999.99, 5500)]
@@ -45,6 +53,11 @@ namespace PayspaceTax.Tests.HelperTests
             Assert.That(tax, Is.EqualTo(expectedTax));
         }
 
+        /// <summary>
+        /// Simple unit test to ensure that the flat rate tax is being calculated correctly according to the rules defined
+        /// </summary>
+        /// <param name="annualIncome">The annual income</param>
+        /// <param name="expectedTax">The expected tax amount</param>
         [Test]
         [TestCase(105325,18431.88)]
         [TestCase(90543.33,15845.08)]

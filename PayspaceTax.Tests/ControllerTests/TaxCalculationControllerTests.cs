@@ -23,6 +23,9 @@ namespace PayspaceTax.Tests.ControllerTests;
             _mockMapper = new Mock<IMapper>();
         }
         
+        /// <summary>
+        /// Unit test to determine if CalculateTax endpoint result returned is as expected
+        /// </summary>
         [Test]
         public async Task CalculateTax_ValidInput_ReturnsOk()
         {
@@ -68,6 +71,9 @@ namespace PayspaceTax.Tests.ControllerTests;
             _mockTaxCalculationHistoryService.Verify(s => s.AddAsync(historyDto), Times.Once);
         }
 
+        /// <summary>
+        /// Unit test to determine if History endpoint result returned is as expected
+        /// </summary>
         [Test]
         public async Task History_ValidInput_ReturnsOk()
         {

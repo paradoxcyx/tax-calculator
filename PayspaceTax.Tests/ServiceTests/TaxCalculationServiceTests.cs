@@ -18,6 +18,9 @@ namespace PayspaceTax.Tests.ServiceTests;
         private Mock<TaxCalculationHelper> taxCalculationHelperMock; 
         private TaxCalculationService taxCalculationService;
 
+        /// <summary>
+        /// Ensuring we setup all mock instances for services & helpers being used
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -31,9 +34,13 @@ namespace PayspaceTax.Tests.ServiceTests;
                 taxCalculationHelperMock.Object);
         }
 
+        /// <summary>
+        /// Unit test that includes and valid postal and ensure that the service returns valid result dto with calculated tax amount
+        /// </summary>
         [Test]
         public async Task CalculateTaxAsync_ValidPostalCode_ReturnsCalculateTaxDtoWithTax()
         {
+            //const variables to easily reference
             const decimal expectedTaxAmount = 500;
             const string postalCode = "7441";
             const decimal annualIncome = 5000;
@@ -75,9 +82,14 @@ namespace PayspaceTax.Tests.ServiceTests;
             Assert.That(result.Tax, Is.EqualTo(expectedTaxAmount));
         }
 
+        /// <summary>
+        /// Unit test with invalid postal code, ensuring that it throws an exception when no valid postal code is found
+        /// </summary>
+        /// <returns></returns>
         [Test]
         public Task CalculateTaxAsync_InvalidPostalCode_ThrowsException()
         {
+            //const variables to easily reference
             const string postalCode = "InvalidPostalCode";
             const decimal annualIncome = 50000;
             const string expectedExceptionMessage = $"{postalCode} is an invalid Postal Code";
@@ -98,9 +110,14 @@ namespace PayspaceTax.Tests.ServiceTests;
             return Task.CompletedTask;  
         }
 
+        /// <summary>
+        /// Unit test with invalid progressive tax bracket, ensuring that it throws an exception when no valid tax bracket is found
+        /// </summary>
+        /// <returns></returns>
         [Test]
         public Task CalculateTaxAsync_ProgressiveTaxBracketNotFound_ThrowsException()
         {
+            //const variables to easily reference
             const string postalCode = "ValidPostalCode";
             const decimal annualIncome = 50000;
             const string expectedExceptionMessage = "Progressive Tax Bracket does not exist";
@@ -124,9 +141,13 @@ namespace PayspaceTax.Tests.ServiceTests;
             return Task.CompletedTask;
         }
         
+        /// <summary>
+        /// Unit test that ensures it returns correctly calculated tax of Flat Rate Type
+        /// </summary>
         [Test]
         public async Task CalculateTaxAsync_FlatRateType_ReturnsCalculateTaxDtoWithTax()
         {
+            //const variables to easily reference
             const decimal expectedTaxAmount = 8750;
             const string postalCode = "7000";
             const decimal annualIncome = 50000;
@@ -152,9 +173,13 @@ namespace PayspaceTax.Tests.ServiceTests;
             Assert.That(result.Tax, Is.EqualTo(expectedTaxAmount));
         }
 
+        /// <summary>
+        /// Unit test that ensures it returns correctly calculated tax of Flat Value Type
+        /// </summary>
         [Test]
         public async Task CalculateTaxAsync_FlatValueType_ReturnsCalculateTaxDtoWithTax()
         {
+            //const variables to easily reference
             const decimal expectedTaxAmount = 2500;
             const string postalCode = "A100";
             const decimal annualIncome = 50000;
