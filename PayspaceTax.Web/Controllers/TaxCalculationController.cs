@@ -15,11 +15,6 @@ public class TaxCalculationController(TaxCalculationApiService api, ILogger<TaxC
     {
         var result = await api.GetHistory();
         
-        if (result is not { Success: true })
-        {
-            //TODO: Throw error
-        }
-        
         return View(result!.Data);
     }
 
@@ -38,7 +33,7 @@ public class TaxCalculationController(TaxCalculationApiService api, ILogger<TaxC
         {
             model.ErrorMessage = result.Message;
             
-            logger.LogInformation($"Error on calculation endpoint call: {result.Message}");
+            logger.LogInformation("Error on calculation endpoint call: {message}", result.Message);
             return View(model);
         }
 

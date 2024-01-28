@@ -24,6 +24,11 @@ public interface IRepository<T>
     /// <returns></returns>
     Task AddRangeAsync(IEnumerable<T> entities);
 
+    /// <summary>
+    /// Retrieve the first record by predicate
+    /// </summary>
+    /// <param name="predicate">Lookup predicate</param>
+    /// <returns>The entity</returns>
     Task<T?> GetFirstByAsync(Expression<Func<T, bool>> predicate);
 
 }

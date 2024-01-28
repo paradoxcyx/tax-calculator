@@ -24,6 +24,12 @@ public class TaxCalculationService(
         return calculateTax;
     }
 
+    /// <summary>
+    /// Retrieve the tax calculation type for postal code
+    /// </summary>
+    /// <param name="postalCode">Postal Code</param>
+    /// <returns>The calculation type</returns>
+    /// <exception cref="PaySpaceTaxException">if the postal code does not exist</exception>
     private async Task<TaxCalculationTypeEnum> GetTaxCalculationTypeAsync(string postalCode)
     {
         var calculationType =
@@ -35,6 +41,13 @@ public class TaxCalculationService(
         return (TaxCalculationTypeEnum)calculationType.TaxCalculationType;
     }
 
+    /// <summary>
+    /// Calculate the tax based on the type
+    /// </summary>
+    /// <param name="annualIncome">Annual income</param>
+    /// <param name="calculationType">The calculation type</param>
+    /// <returns></returns>
+    /// <exception cref="PaySpaceTaxException">if the calculation is not found</exception>
     private async Task<decimal> CalculateTaxBasedOnTypeAsync(decimal annualIncome, TaxCalculationTypeEnum calculationType)
     {
         return calculationType switch
@@ -46,6 +59,12 @@ public class TaxCalculationService(
         };
     }
 
+    /// <summary>
+    /// Calculate tax following the progressive tax brackets
+    /// </summary>
+    /// <param name="annualIncome">Annual Income</param>
+    /// <returns>The progressive tax amount</returns>
+    /// <exception cref="PaySpaceTaxException">If the tax bracket is not found</exception>
     private async Task<decimal> CalculateProgressiveTaxAsync(decimal annualIncome)
     {
         var taxBracket = await progressiveTaxBracketRepository.GetFirstByAsync(x =>
