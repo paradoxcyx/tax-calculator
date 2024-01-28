@@ -72,7 +72,7 @@ namespace PayspaceTax.Tests.ServiceTests;
 
             // Assert
             Assert.That(result, Is.Not.Null);
-            Assert.That(result.Tax, Is.EqualTo(expectedTaxAmount)); // Expected tax: 50000 * 10% = 5000
+            Assert.That(result.Tax, Is.EqualTo(expectedTaxAmount));
         }
 
         [Test]

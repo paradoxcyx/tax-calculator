@@ -10,13 +10,7 @@ namespace PayspaceTax.Tests.HelperTests
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            // Create a mock for ITaxCalculationHelper
-            var taxCalculationHelperMock = new Mock<TaxCalculationHelper>();
-
-            // Set up any necessary behavior for the mock
-
-            // Assign the mock to the private field
-            taxCalculationHelper = taxCalculationHelperMock.Object;
+            taxCalculationHelper = new TaxCalculationHelper();
         }
         
 
