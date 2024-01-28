@@ -35,17 +35,19 @@ namespace PayspaceTax.Tests.ServiceTests;
         public async Task CalculateTaxAsync_ValidPostalCode_ReturnsCalculateTaxDtoWithTax()
         {
             const decimal expectedTaxAmount = 500;
+            const string postalCode = "7441";
+            const decimal annualIncome = 5000;
             
             // Arrange
             var calculateTaxDto = new CalculateTaxDto
             {
-                PostalCode = "7441",
-                AnnualIncome = 5000
+                PostalCode = postalCode,
+                AnnualIncome = annualIncome
             };
 
             var postalCodeTaxCalculationType = new PostalCodeTaxCalculationType
             {
-                PostalCode = "7441",
+                PostalCode = postalCode,
                 TaxCalculationType = (int)TaxCalculationTypeEnum.Progressive
             };
 
@@ -76,11 +78,15 @@ namespace PayspaceTax.Tests.ServiceTests;
         [Test]
         public Task CalculateTaxAsync_InvalidPostalCode_ThrowsException()
         {
+            const string postalCode = "InvalidPostalCode";
+            const decimal annualIncome = 50000;
+            const string expectedExceptionMessage = $"{postalCode} is an invalid Postal Code";
+            
             // Arrange
             var calculateTaxDto = new CalculateTaxDto
             {
-                PostalCode = "InvalidPostalCode", // Assuming this postal code is invalid
-                AnnualIncome = 50000
+                PostalCode = postalCode, // Assuming this postal code is invalid
+                AnnualIncome = annualIncome
             };
 
             postalCodeTaxCalculationTypeRepositoryMock.Setup(repo => repo.GetFirstByAsync(It.IsAny<Expression<Func<PostalCodeTaxCalculationType, bool>>>()))
@@ -88,29 +94,33 @@ namespace PayspaceTax.Tests.ServiceTests;
 
             // Act and Assert
             var exception = Assert.ThrowsAsync<PaySpaceTaxException>(() => taxCalculationService.CalculateTaxAsync(calculateTaxDto));
-            Assert.That(exception?.Message, Is.EqualTo("InvalidPostalCode is an invalid Postal Code"));
+            Assert.That(exception?.Message, Is.EqualTo(expectedExceptionMessage));
             return Task.CompletedTask;  
         }
 
         [Test]
         public Task CalculateTaxAsync_ProgressiveTaxBracketNotFound_ThrowsException()
         {
+            const string postalCode = "ValidPostalCode";
+            const decimal annualIncome = 50000;
+            const string expectedExceptionMessage = "Progressive Tax Bracket does not exist";
+            
             // Arrange
             var calculateTaxDto = new CalculateTaxDto
             {
-                PostalCode = "ValidPostalCode",
-                AnnualIncome = 50000
+                PostalCode = postalCode,
+                AnnualIncome = annualIncome
             };
 
             postalCodeTaxCalculationTypeRepositoryMock.Setup(repo => repo.GetFirstByAsync(It.IsAny<Expression<Func<PostalCodeTaxCalculationType, bool>>>()))
-                .ReturnsAsync(new PostalCodeTaxCalculationType { PostalCode = "ValidPostalCode", TaxCalculationType = (int)TaxCalculationTypeEnum.Progressive});
+                .ReturnsAsync(new PostalCodeTaxCalculationType { PostalCode = postalCode, TaxCalculationType = (int)TaxCalculationTypeEnum.Progressive});
 
             progressiveTaxBracketRepositoryMock.Setup(repo => repo.GetFirstByAsync(It.IsAny<Expression<Func<ProgressiveTaxBracket, bool>>>()))
                 .ReturnsAsync((ProgressiveTaxBracket)null); // Simulating not finding a progressive tax bracket
 
             // Act and Assert
             var exception = Assert.ThrowsAsync<PaySpaceTaxException>(() => taxCalculationService.CalculateTaxAsync(calculateTaxDto));
-            Assert.That(exception?.Message, Is.EqualTo("Progressive Tax Bracket does not exist"));
+            Assert.That(exception?.Message, Is.EqualTo(expectedExceptionMessage));
             return Task.CompletedTask;
         }
         
@@ -118,16 +128,18 @@ namespace PayspaceTax.Tests.ServiceTests;
         public async Task CalculateTaxAsync_FlatRateType_ReturnsCalculateTaxDtoWithTax()
         {
             const decimal expectedTaxAmount = 8750;
+            const string postalCode = "7000";
+            const decimal annualIncome = 50000;
             
             // Arrange
             var calculateTaxDto = new CalculateTaxDto
             {
-                PostalCode = "7000",
-                AnnualIncome = 50000
+                PostalCode = postalCode,
+                AnnualIncome = annualIncome
             };
 
             postalCodeTaxCalculationTypeRepositoryMock.Setup(repo => repo.GetFirstByAsync(It.IsAny<Expression<Func<PostalCodeTaxCalculationType, bool>>>()))
-                .ReturnsAsync(new PostalCodeTaxCalculationType { PostalCode = "7000", TaxCalculationType = (int)TaxCalculationTypeEnum.FlatRate });
+                .ReturnsAsync(new PostalCodeTaxCalculationType { PostalCode = postalCode, TaxCalculationType = (int)TaxCalculationTypeEnum.FlatRate });
 
             taxCalculationHelperMock.Setup(helper => helper.CalculateFlatRateTax(It.IsAny<decimal>()))
                 .Returns(expectedTaxAmount);
@@ -144,16 +156,18 @@ namespace PayspaceTax.Tests.ServiceTests;
         public async Task CalculateTaxAsync_FlatValueType_ReturnsCalculateTaxDtoWithTax()
         {
             const decimal expectedTaxAmount = 2500;
+            const string postalCode = "A100";
+            const decimal annualIncome = 50000;
             
             // Arrange
             var calculateTaxDto = new CalculateTaxDto
             {
-                PostalCode = "A100",
-                AnnualIncome = 50000
+                PostalCode = postalCode,
+                AnnualIncome = annualIncome
             };
 
             postalCodeTaxCalculationTypeRepositoryMock.Setup(repo => repo.GetFirstByAsync(It.IsAny<Expression<Func<PostalCodeTaxCalculationType, bool>>>()))
-                .ReturnsAsync(new PostalCodeTaxCalculationType { PostalCode = "A100", TaxCalculationType = (int)TaxCalculationTypeEnum.FlatValue });
+                .ReturnsAsync(new PostalCodeTaxCalculationType { PostalCode = postalCode, TaxCalculationType = (int)TaxCalculationTypeEnum.FlatValue });
 
             taxCalculationHelperMock.Setup(helper => helper.CalculateFlatValueTax(It.IsAny<decimal>()))
                 .Returns(expectedTaxAmount);
