@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PayspaceTax.API.Shared.Models;
 using PayspaceTax.Application.DTOs;
 using PayspaceTax.Application.Interfaces.Services;
+using PayspaceTax.Domain.Exceptions;
 
 namespace PayspaceTax.API.Controllers
 {
@@ -13,6 +14,9 @@ namespace PayspaceTax.API.Controllers
         [HttpPost("CalculateTax")]
         public async Task<IActionResult> CalculateTax([FromBody] CalculateTaxInput input)
         {
+            if (input.AnnualIncome < 0)
+                throw new PaySpaceTaxException("Annual Income cannot be less than zero");
+            
             //Calculate tax by using business logic defined in the service
             var calculationDto = mapper.Map<CalculateTaxDto>(input);
             var taxCalculationResult = await taxCalculationService.CalculateTaxAsync(calculationDto);

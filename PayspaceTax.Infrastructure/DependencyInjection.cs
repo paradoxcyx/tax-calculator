@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PayspaceTax.Application.Interfaces.Repositories;
 using PayspaceTax.Infrastructure.Database;
 using PayspaceTax.Infrastructure.Repositories;
-using PayspaceTax.Infrastructure.Util;
+using PayspaceTax.Infrastructure.Seeder;
 using PayspaceTax.Domain.Entities;
 namespace PayspaceTax.Infrastructure;
 

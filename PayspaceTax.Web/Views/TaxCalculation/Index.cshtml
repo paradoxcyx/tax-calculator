@@ -8,27 +8,34 @@
 <div class="text-center">
     <h1 class="display-4 mb-5"><strong class="text-primary">Tax</strong> Calculator</h1>
 
+    @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+    {
+        <div class="row justify-content-center align-items-center">
+            <h4 style="color: red">@Model.ErrorMessage</h4>
+        </div>
+    }
+    
     <div class="row justify-content-start align-items-center">
         
         @using (Html.BeginForm("Index", "TaxCalculation", FormMethod.Post))
         {
             <div class="form-group text-start mb-5">
-                @Html.LabelFor(model => model.PostalCode, new { @class = "form-label" })
-                @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PostalCode)
+                @Html.LabelFor(model => model.TaxData!.PostalCode, new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.TaxData!.PostalCode, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TaxData!.PostalCode)
             </div>
             
             <div class="form-group text-start mb-5">
-                @Html.LabelFor(model => model.AnnualIncome, new { @class = "form-label" })
-                @Html.TextBoxFor(model => model.AnnualIncome, new {min = "0", type = "number", @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.AnnualIncome)
+                @Html.LabelFor(model => model.TaxData!.AnnualIncome, new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.TaxData!.AnnualIncome, new {min = "0", type = "number", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TaxData!.AnnualIncome)
             </div>
             
             <button type="submit" class="btn btn-primary mb-5">Calculate Tax</button>
         }
     </div>
     
-    @if (Model.Tax != null)
+    @if (Model.TaxData is { Tax: not null })
     {
         <!-- Display the results -->
         <div class="row justify-content-center">
@@ -36,15 +43,15 @@
                 <tbody>
                     <tr class="text-start">
                         <td><b>Postal Code</b></td>
-                        <td>@Model.PostalCode</td>
+                        <td>@Model.TaxData!.PostalCode</td>
                     </tr>
                     <tr class="text-start">
                         <td><b>Annual Income</b></td>
-                        <td>@($"{Model.AnnualIncome:C2}")</td>
+                        <td>@($"{Model.TaxData!.AnnualIncome:C2}")</td>
                     </tr>
                     <tr class="text-start">
                         <td><b>Tax Amount</b></td>
-                        <td>@($"{Model.Tax:C2}")</td>
+                        <td>@($"{Model.TaxData!.Tax:C2}")</td>
                     </tr>
                 </tbody>
             </table>

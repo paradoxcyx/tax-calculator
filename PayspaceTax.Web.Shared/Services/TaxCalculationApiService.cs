@@ -15,16 +15,16 @@ public class TaxCalculationApiService : ApiService
     {
     }
     
-    public async Task<GenericResponseModel<TaxCalculationViewModel?>?> CalculateTax(TaxCalculationViewModel model)
+    public async Task<GenericResponseModel<TaxCalculationDataViewModel?>?> CalculateTax(TaxCalculationViewModel model)
     {
         // Create request
         var request = new RestRequest($"{BaseEndpoint}/CalculateTax", Method.Post);
         
         // Add JSON body if needed
-        request.AddJsonBody(model);
+        request.AddJsonBody(model.TaxData);
 
         // Execute the request
-        var response = await RestClient.ExecuteAsync<GenericResponseModel<TaxCalculationViewModel?>>(request);
+        var response = await RestClient.ExecuteAsync<GenericResponseModel<TaxCalculationDataViewModel?>>(request);
 
         return response.Data;
     }

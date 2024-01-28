@@ -5,6 +5,11 @@ namespace PayspaceTax.Web.Shared.Models.TaxCalculation;
 
 public class TaxCalculationViewModel
 {
+    public TaxCalculationDataViewModel? TaxData { get; set; }
+    public string? ErrorMessage { get; set; }
+}
+
+public class TaxCalculationDataViewModel {
     [DisplayName("Postal Code")]
     [Required(ErrorMessage = "Postal Code is required")]
     public string PostalCode { get; set; }

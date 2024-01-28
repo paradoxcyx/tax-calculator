@@ -1,7 +1,4 @@
-﻿using System.Data.Entity.Infrastructure;
-using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore;
-using Moq;
+﻿using Moq;
 using PayspaceTax.Application.DTOs;
 using PayspaceTax.Application.Interfaces.Repositories;
 using PayspaceTax.Application.Services;
@@ -9,8 +6,6 @@ using PayspaceTax.Domain.Entities;
 using PayspaceTax.Domain.Enums;
 using PayspaceTax.Domain.Exceptions;
 using PayspaceTax.Domain.Helpers;
-using PayspaceTax.Infrastructure.Database;
-using PayspaceTax.Infrastructure.Repositories;
 
 namespace PayspaceTax.Tests.ServiceTests;
 
