@@ -1,6 +1,4 @@
-# PaySpace Tax Calculator
-
-This is a Tax Calculator assessment by **PaySpace**
+# Tax Calculator
 
 ## Run & Build Instructions
 
@@ -10,17 +8,17 @@ This is a Tax Calculator assessment by **PaySpace**
 
 ![Import Data-tier Application](image.png)
 
-- Ensure that the database name is `PayspaceTax` after the restore.
+- Ensure that the database name is `TaxCalculator` after the restore.
 
 ### 2. Open the solution
 
 - You can open this solution in your preferred IDE. Take note that I used `Jetbrains Rider` for development.
 
-- The solution file should be located in root, `PayspaceTax.sln`
+- The solution file should be located in root, `TaxCalculator.sln`
 
 ### 3. Ensure that you start multiple projects
 
-- You need to assign `PayspaceTax.API` and `PayspaceTax.Web` to start in that order.
+- You need to assign `TaxCalculator.API` and `TaxCalculator.Web` to start in that order.
 
 - Now you can run the solution with your new configuration.
 
@@ -34,7 +32,7 @@ This is a Tax Calculator assessment by **PaySpace**
 
 - Toggle `Multiple Startup Projects`
 
-- Make sure you set the `Action` of `PayspaceTax.API` and `PayspaceTax.Web` to `Start`
+- Make sure you set the `Action` of `TaxCalculator.API` and `TaxCalculator.Web` to `Start`
 
 - **PS:** Make sure the `API` starts before `Web`
 
