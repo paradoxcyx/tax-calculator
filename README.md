@@ -36,18 +36,4 @@
 
 - **PS:** Make sure the `API` starts before `Web`
 
-#### In JetBrains Rider 2023.3.3
-
-![Solution Configuration](image-1.png)
-
 - Click on `Edit Configurations...`
-
-![Click plus button](image-2.png)
-
-- Click on the `+`
-
-- Look for the `Multi-launch` Option
-
-- There should be a button called `Add configuration or task` in your newly created Multi-launch configuration.
-
-- Add the API & Web Project as mentioned in the VS 2022 configuration steps, in the API > Web order.
